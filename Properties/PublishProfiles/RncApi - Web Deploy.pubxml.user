@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Este archivo se usa en el proceso de publicación y empaquetado del proyecto web. Para personalizar el comportamiento de este proceso,
+edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 para obtener más información. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHkDHybwjQEKf8uQS3+GEmwAAAAACAAAAAAAQZgAAAAEAACAAAABCnBSuKtW1Ij+gz1H3fiKn+9iFYed/MiSyh8nqWISyVwAAAAAOgAAAAAIAACAAAACOYkAvNbg12xt+XIgK1H0DLmiseqxIbjyHfOTE6ZiOqYAAAACD9zwLAzBKYEV/zu3lKEV9RM3VEfbk6W8Zl4X+hKA8+s46OAyXkbpi3qycXKo4nE/3vlIJGADDjSo9jXSZ+WMVT1o/ZkyT82OUzZwQuJ14WzSR3xlekZt/7uyChObuirphXjsnaZWpfbftOyacNXY8jy1rMLN7zwML0ILJNDVdHEAAAACHqVgJ5R9dN6U0f6/jHAs+RQjXb64r+wqKyzvjd58bfeBfTF/jK8Nxwmo7a8GcdaxvMUhYQstZig/PVIYCKwEG</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <EFMigrations Include="ApiRnc.Models.ContrubuyenteContext">
+      <Value>Data Source=tcp:erinxon.database.windows.net,1433%3bInitial Catalog=ApiRnc_db%3bUser Id=erinxon%40erinxon%3bPassword=c%40^t2!VVtd4a</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>
