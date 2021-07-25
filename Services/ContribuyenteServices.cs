@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ApiRnc.Services
 {
-    public class ContribuyenteServices : IServices
+    public class ContribuyenteServices : IContribuyenteServices
     {
         private readonly ContrubuyenteContext _contrubuyenteContext;
 
@@ -25,6 +25,13 @@ namespace ApiRnc.Services
         {
             var contribuyente = await _contrubuyenteContext.Contribuyentes
                                 .FirstOrDefaultAsync(x => x.Rnc == rnc);                          
+            return contribuyente;
+        }
+
+        public async Task<Contribuyente> GetContribuyenteByRazonSocial(string razonSocial)
+        {
+            var contribuyente = await _contrubuyenteContext.Contribuyentes
+                                .FirstOrDefaultAsync(x => x.RazonSocial.Contains(razonSocial));
             return contribuyente;
         }
     }

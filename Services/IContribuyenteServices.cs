@@ -6,9 +6,10 @@ using ApiRnc.Models;
 
 namespace ApiRnc.Services
 {
-    public interface IServices
+    public interface IContribuyenteServices
     {
         Task<IEnumerable<Contribuyente>> GetContribuyentes();
         Task<Contribuyente> GetContribuyente(string rnc);
+        Task<Contribuyente> GetContribuyenteByRazonSocial(string razonSocial);
     }
 }

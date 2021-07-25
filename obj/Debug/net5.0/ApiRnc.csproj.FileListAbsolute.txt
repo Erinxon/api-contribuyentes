@@ -50,3 +50,5 @@ C:\Users\Erinxon\Desktop\Proyectos\Rnc\ApiRnc\obj\Debug\net5.0\ApiRnc.dll
 C:\Users\Erinxon\Desktop\Proyectos\Rnc\ApiRnc\obj\Debug\net5.0\ref\ApiRnc.dll
 C:\Users\Erinxon\Desktop\Proyectos\Rnc\ApiRnc\obj\Debug\net5.0\ApiRnc.pdb
 C:\Users\Erinxon\Desktop\Proyectos\Rnc\ApiRnc\obj\Debug\net5.0\ApiRnc.genruntimeconfig.cache
+C:\Users\Erinxon\Desktop\Proyectos\Rnc\ApiRnc\bin\Debug\net5.0\AutoMapper.dll
+C:\Users\Erinxon\Desktop\Proyectos\Rnc\ApiRnc\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

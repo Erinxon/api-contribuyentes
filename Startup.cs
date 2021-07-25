@@ -39,7 +39,9 @@ namespace ApiRnc
             {
                 option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
-            services.AddScoped<IServices, ContribuyenteServices>();
+            services.AddScoped<IContribuyenteServices, ContribuyenteServices>();
+            services.AddAutoMapper(typeof(Startup));
+            services.AddResponseCaching();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,6 +62,8 @@ namespace ApiRnc
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseResponseCaching();
 
             app.UseEndpoints(endpoints =>
             {

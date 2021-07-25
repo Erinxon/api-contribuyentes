@@ -8,6 +8,7 @@ using ApiRnc.Response;
 using ApiRnc.Services;
 using ApiRnc.Dtos;
 using System;
+using AutoMapper;
 
 namespace ApiRnc.Controllers
 {
@@ -15,35 +16,27 @@ namespace ApiRnc.Controllers
     [ApiController]    
     public class ContribuyenteController : ControllerBase
     {
-        private readonly IServices _contribuyenteServices;
+        private readonly IContribuyenteServices _contribuyenteServices;
+        private readonly IMapper _mapper;
 
-        public ContribuyenteController(IServices services)
+        public ContribuyenteController(IContribuyenteServices services, IMapper mapper)
         {
             this._contribuyenteServices = services;
+            this._mapper = mapper;
         }
 
         [HttpGet("{rnc}")]
-        public async Task<ActionResult<Response<DtoContribuyente>>> GetContribuyenteById(string rnc)
+        [ResponseCache(Location = ResponseCacheLocation.Any, Duration = 5)]
+        public async Task<ActionResult<Response<DtoContribuyente>>> GetByRnc(string rnc)
         {
             var response = new Response<DtoContribuyente>();
             try
             {
                 var contribuyente = await _contribuyenteServices.GetContribuyente(rnc);
-
                 if(contribuyente != null)
                 {
-                    response.Data = new DtoContribuyente
-                    {
-                        Rnc = contribuyente.Rnc,
-                        RazonSocial =  contribuyente.RazonSocial,
-                        NombreComercial = contribuyente.RazonSocial,
-                        ActividadEconomica = contribuyente.ActividadEconomica,
-                        Fecha = contribuyente.Fecha,
-                        Estatus = contribuyente.Estatus,
-                        RegimenDePagos = contribuyente.RegimenDePagos
-                    };
+                    response.Data = _mapper.Map<DtoContribuyente>(contribuyente);
                 }
-
             }
             catch (Exception ex)
             {
@@ -51,6 +44,29 @@ namespace ApiRnc.Controllers
                 response.Message = ex.Message;
                 return BadRequest(response);
             }         
+            return Ok(response);
+        }
+
+        [HttpGet("razonSocial/{razonSocial}")]
+        [ResponseCache(Location = ResponseCacheLocation.Any, Duration = 5)]
+        public async Task<ActionResult<Response<DtoContribuyente>>> GetByRazonSocial(string razonSocial)
+        {
+            var response = new Response<DtoContribuyente>();
+            try
+            {
+                var contribuyente = await _contribuyenteServices
+                    .GetContribuyenteByRazonSocial(razonSocial);
+                if (contribuyente != null)
+                {
+                    response.Data = _mapper.Map<DtoContribuyente>(contribuyente);
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                response.Message = ex.Message;
+                return BadRequest(response);
+            }
             return Ok(response);
         }
     }
